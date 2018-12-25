@@ -118,7 +118,14 @@ class Main{
             System.out.println("test 5.3 passed");
         }else System.out.println("test 5.3 failure");
 
-        a.remove(-5);
-
+        //a.remove(-5);
+        DynArray<Integer> b = new DynArray<Integer>(Integer.class);
+        for(int i = 0; i< 16; i++){
+            b.append(i);
+            b.statLog();
+        }
+        b.insert(16, 12345);
+        b.statLog();
+        System.out.println(b.getItem(16));
     }
 }

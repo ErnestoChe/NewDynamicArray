@@ -45,7 +45,7 @@ class DynArray<T>
         }
         capacity = newSize;
     }
-    public void insert(int i, T ins){
+    public void insert(T ins, int i ){
         if (i > count || i<0){
             throw new IndexOutOfBoundsException("Index: " + i + ", Size: " + count);}
         else{
@@ -94,5 +94,6 @@ class DynArray<T>
         log();
         System.out.println(capacity+" capacity");
         System.out.println(count+ " count");
+        System.out.println();
     }
 }
