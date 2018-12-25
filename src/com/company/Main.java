@@ -46,7 +46,7 @@ class DynArray<T>
         capacity = newSize;
     }
     public void insert(int i, T ins){
-        if (i > count){
+        if (i > count || i<0){
             throw new IndexOutOfBoundsException("Index: " + i + ", Size: " + count);}
         else{
             if(count+1>capacity){
@@ -61,28 +61,21 @@ class DynArray<T>
     }
 
     public void remove(int index){
-        if (index > count || array[0] == null){
+        if (index > count || array[0] == null || index<0){
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);}
         else {
             count--;
             for(int q = index; q < count; q++){
                 array[q] = array[q+1];
             }
-            if(count < 16){
-                //int newSize = 16;
-                tmp = array;
-                capacity = 16;
-                makeArray(capacity);
-                for(int i = 0; i<count; i++){
-                    array[i] = tmp[i];
+            if (count * 2 < capacity) {
+                capacity /=1.5;
+                if(capacity<16){
+                    capacity = 16;
                 }
-            }else
-            if (count * 3 < capacity * 2) {
-                int newSize = (capacity * 2) / 3;
                 tmp = array;
-                capacity = newSize;
                 makeArray(capacity);
-                for(int i = 0; i<newSize; i++){
+                for(int i = 0; i<capacity; i++){
                     array[i] = tmp[i];
                 }
             }
