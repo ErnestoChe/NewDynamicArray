@@ -61,22 +61,26 @@ class DynArray<T>
     }
 
     public void remove(int index){
-        if (index > count || array[0] == null || index<0){
+        if (index > count|| index<0){
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);}
-        else {
-            count--;
-            for(int q = index; q < count; q++){
-                array[q] = array[q+1];
-            }
-            if (count * 2 < capacity) {
-                capacity /=1.5;
-                if(capacity<16){
-                    capacity = 16;
+        else{
+            if(array[0] == null){
+                //System.out.println("cant delete from empty array");
+            }else{
+                count--;
+                for(int q = index; q < count; q++){
+                    array[q] = array[q+1];
                 }
-                tmp = array;
-                makeArray(capacity);
-                for(int i = 0; i<capacity; i++){
-                    array[i] = tmp[i];
+                if (count * 2 < capacity) {
+                    capacity /=1.5;
+                    if(capacity<16){
+                        capacity = 16;
+                    }
+                    tmp = array;
+                    makeArray(capacity);
+                    for(int i = 0; i<capacity; i++){
+                        array[i] = tmp[i];
+                    }
                 }
             }
         }

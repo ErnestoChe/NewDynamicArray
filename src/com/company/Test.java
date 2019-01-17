@@ -14,15 +14,15 @@ class Main{
         if(a.capacity == 16 && a.count == 8){
             System.out.println("passed");
         }
-        a.insert(0, 111);
+        a.insert(111, 0);
         if(a.array[0] == 111 && a.count == 9 && a.capacity == 16){
             System.out.println("passed ins in [0]");
         }else System.out.println("MISTAKE!!!11!!1(111)");
-        a.insert(a.count, 222);
+        a.insert(222, a.count);
         if(a.array[a.count-1] == 222 && a.count == 10 && a.capacity == 16){
             System.out.println("passed ins in [last]");
         }else System.out.println("MISTAKE!!!11!!1(222)");
-        a.insert(5, 333);
+        a.insert(333, 5);
         if(a.array[5] == 333 && a.count == 11 && a.capacity == 16){
             System.out.println("passed ins in [mid]");
         }else System.out.println("MISTAKE!!!11!!1(333)");
@@ -58,7 +58,7 @@ class Main{
             a.append(i);
             //a.statLog();
         }
-        a.insert(5, 444);
+        a.insert(444, 5);
         if(a.count == 17 && a.capacity ==32){
             System.out.println("test 2.1  passed");
         }else System.out.println("test 2.1 failed");
@@ -120,12 +120,6 @@ class Main{
 
         //a.remove(-5);
         DynArray<Integer> b = new DynArray<Integer>(Integer.class);
-        for(int i = 0; i< 16; i++){
-            b.append(i);
-            b.statLog();
-        }
-        b.insert(16, 12345);
-        b.statLog();
-        System.out.println(b.getItem(16));
+        b.remove(0);
     }
 }
