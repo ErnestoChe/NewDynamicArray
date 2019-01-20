@@ -119,11 +119,17 @@ class Main{
         }else System.out.println("test 5.3 failure");
         a.insert(1234, 8);
         a.statLog();
+        //a.remove(9);
+        //a.statLog();
         //a.remove(-5);
+        System.out.println("______________bbbbb____________________");
         DynArray<Integer> b = new DynArray<Integer>(Integer.class);
+        //System.out.println(b.count + " count ");
+        b.append(123);
         b.statLog();
         b.remove(0);
-        System.out.println(b.capacity);
-        System.out.println(b.count);
+        b.statLog();
+        System.out.println(b.array[0]);
+        b.remove(0);
     }
 }

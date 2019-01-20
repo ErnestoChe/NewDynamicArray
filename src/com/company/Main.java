@@ -61,7 +61,10 @@ class DynArray<T>
     }
 
     public void remove(int index){
-        if (index > count|| index<0 || array[0] == null){
+        /*System.out.println(index + " index ");
+        System.out.println(count + " count ");
+        if(array[0] == null){System.out.println("null");}else System.out.println(array[0]);*/
+        if (index > count || index<0 || array[0] == null){
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);}
         else{
             count--;
@@ -79,6 +82,7 @@ class DynArray<T>
                     array[i] = tmp[i];
                 }
             }
+            array[count] = null;
         }
     }
     public void log(){
