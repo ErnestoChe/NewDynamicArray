@@ -117,9 +117,13 @@ class Main{
         if(a.capacity == 16 && a.count == 8){
             System.out.println("test 5.3 passed");
         }else System.out.println("test 5.3 failure");
-
+        a.insert(1234, 8);
+        a.statLog();
         //a.remove(-5);
         DynArray<Integer> b = new DynArray<Integer>(Integer.class);
+        b.statLog();
         b.remove(0);
+        System.out.println(b.capacity);
+        System.out.println(b.count);
     }
 }
